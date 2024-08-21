@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Note</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'privnote/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Create a Secret Note</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.content.label_tag }}
+            {{ form.content }}
+            {{ form.duration.label_tag }}
+            {{ form.duration }}
+            <div class="checkbox-container">
+                <input type="checkbox" id="{{ form.one_time_view.id_for_label }}" name="{{ form.one_time_view.html_name }}">
+                <span class="checkmark"></span>
+                <label for="{{ form.one_time_view.id_for_label }}"></label>
+                <h4>One time only</h4>
+                
+            </div>
+            <button type="submit">Create Note</button>
+        </form>
+        <footer class="footer">
+            <div class="container">
+                <p>If you find this project helpful, check out more of my work:</p>
+                <div class="footer-content">
+                    <a href="https://github.com/carlosj1999" class="social-button" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/carlos-ibanez99/" class="social-button" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

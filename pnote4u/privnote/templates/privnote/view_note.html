@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Note</title>
+    <link rel="stylesheet" href="{% static 'privnote/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Secret Message</h1>
+        {% if note.is_active %}
+            <div class="note-content">{{ note.content }}</div>
+        {% else %}
+            <p class="message">This note is no longer available. ⚠️</p>
+        {% endif %}
+        <div class="footer">
+            <p>Note: Once viewed, this message may self-destruct!</p>
+        </div>
+    </div>
+</body>
+</html>
