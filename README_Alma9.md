@@ -140,7 +140,9 @@ Notes:
 2. Make sure the paths in `WorkingDirectory` and `ExecStart` are correct according to your setup.
 
 ### 10. Start and Enable Gunicorn Socket
-
+```bash
+sudo systemctl daemon-reload
+```
 ```bash
 sudo systemctl start gunicorn.socket
 ```
